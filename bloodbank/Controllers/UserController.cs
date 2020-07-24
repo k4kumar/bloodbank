@@ -11,7 +11,8 @@ namespace bloodbank.Controllers
 {
     public class UserController : ApiController
     {
-        public IHttpActionResult Login(User model)
+        [HttpPost]
+        public IHttpActionResult Login(UserViewModel model)
         {
             var user = UserDataAccess.CheckUserLogin(model.UserName, model.Password);
             if (user == null)

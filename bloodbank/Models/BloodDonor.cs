@@ -29,5 +29,9 @@ namespace bloodbank.Models
         public bool HasDonated { get; set; }
         [DefaultValue(true)]
         public bool IsVerified { get; set; }
+        [DefaultValue(0)]
+        public double Longitude { get; set; }
+        [DefaultValue(0)]
+        public double Latitude { get; set; }
     }
 }

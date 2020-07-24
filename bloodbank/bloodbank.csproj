@@ -138,8 +138,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Context\bloodbankDbContext.cs" />
+    <Compile Include="Controllers\BloodDonorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DataAccess\BloodDonorDataAccess.cs" />
     <Compile Include="DataAccess\UserDataAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -149,10 +151,16 @@
     <Compile Include="Migrations\202007221831156_InitMigration.designer.cs">
       <DependentUpon>202007221831156_InitMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007241510102_BloodDonorLongLatAdded.cs" />
+    <Compile Include="Migrations\202007241510102_BloodDonorLongLatAdded.designer.cs">
+      <DependentUpon>202007241510102_BloodDonorLongLatAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BloodDonor.cs" />
+    <Compile Include="Models\BloodDonorViewModel.cs" />
     <Compile Include="Models\Hospital.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +219,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202007221831156_InitMigration.resx">
       <DependentUpon>202007221831156_InitMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007241510102_BloodDonorLongLatAdded.resx">
+      <DependentUpon>202007241510102_BloodDonorLongLatAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
