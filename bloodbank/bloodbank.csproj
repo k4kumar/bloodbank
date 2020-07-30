@@ -155,6 +155,10 @@
     <Compile Include="Migrations\202007241510102_BloodDonorLongLatAdded.designer.cs">
       <DependentUpon>202007241510102_BloodDonorLongLatAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007281702513_BloodDonorModelUpdate.cs" />
+    <Compile Include="Migrations\202007281702513_BloodDonorModelUpdate.designer.cs">
+      <DependentUpon>202007281702513_BloodDonorModelUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BloodDonor.cs" />
     <Compile Include="Models\BloodDonorViewModel.cs" />
@@ -223,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007241510102_BloodDonorLongLatAdded.resx">
       <DependentUpon>202007241510102_BloodDonorLongLatAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007281702513_BloodDonorModelUpdate.resx">
+      <DependentUpon>202007281702513_BloodDonorModelUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

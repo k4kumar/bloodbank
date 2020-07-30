@@ -47,7 +47,11 @@ namespace bloodbank.DataAccess
             blooddonor.IsVerified = false;
             blooddonor.LastDonatedDate = model.LastDonatedDate?? new DateTime(2000,1,1);
             blooddonor.BloodGroup = model.BloodGroup;
-            blooddonor.Address = model.Address;
+            blooddonor.Division = model.Division;
+            blooddonor.NickName = model.NickName;
+            blooddonor.RegNo = model.RegNo;
+            blooddonor.EmergencyContact = model.EmergencyContact;
+            blooddonor.Comment = model.Comment;
             blooddonor.Longitude = 0;
             blooddonor.Latitude = 0;
             blooddonor.IsVerified = false;
