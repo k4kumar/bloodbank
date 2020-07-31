@@ -27,6 +27,15 @@ namespace bloodbank.DataAccess
             return bloodDonors;
         }
 
+        public static bool CheckDonorExist(string regNo)
+        {
+            var db = new bloodbankDbContext();
+            BloodDonor bloodDonor = db.BloodDonors.Where(e=>e.RegNo == regNo).FirstOrDefault();
+            if (bloodDonor == null)
+                return false;
+            return true;
+        }
+
         public static List<BloodDonor> GetActiveBloodDonorsList()
         {
             var db = new bloodbankDbContext();

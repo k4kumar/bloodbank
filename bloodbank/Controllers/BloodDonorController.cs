@@ -17,6 +17,10 @@ namespace bloodbank.Controllers
             if (model == null)
                 return Content(HttpStatusCode.OK, new { data = new { }, code = HttpStatusCode.NotAcceptable, message = "Please provide required data!", isSuccess = false });
 
+            if (BloodDonorDataAccess.CheckDonorExist(model.RegNo))
+                return Content(HttpStatusCode.OK, new { data = new { }, code = HttpStatusCode.Ambiguous, message = "Please provide unique registration number!", isSuccess = false });
+
+
             return Content(HttpStatusCode.OK, new
             {
                 data = new
