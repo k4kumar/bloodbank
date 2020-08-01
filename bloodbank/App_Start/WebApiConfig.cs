@@ -21,6 +21,18 @@ namespace bloodbank
             config.Formatters.XmlFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("multipart/form-data"));
 
             config.Routes.MapHttpRoute(
+              "BloodDonor_update_donation_date",
+              "api/v1/blooddonor/update_donation_date",
+              new { controller = "BloodDonor", action = "UpdateDonationDate", id = RouteParameter.Optional, date = RouteParameter.Optional }
+           );
+
+            config.Routes.MapHttpRoute(
+               "BloodDonor_approve",
+               "api/v1/blooddonor/approve",
+               new { controller = "BloodDonor", action = "Approve", id = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
                "BloodDonor_register",
                "api/v1/blooddonor/registration",
                new { controller = "BloodDonor", action = "Registration", id = RouteParameter.Optional }
