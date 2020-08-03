@@ -102,13 +102,14 @@ namespace bloodbank.DataAccess
            
 
             db.BloodDonors.Add(blooddonor);
-            blooddonor.Id = db.SaveChanges();
+            db.SaveChanges();
 
             UserViewModel user = new UserViewModel
             {
                 Password = model.Password,
                 UserName = model.Username,
-                Email = model.Email?? ""
+                Email = model.Email?? "",
+                BloodDonorId = blooddonor.Id
             };
 
             int result = UserDataAccess.CreateUser(user);

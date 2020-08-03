@@ -90,7 +90,8 @@ namespace bloodbank.DataAccess
                 BlockedUser = false,
                 FullName = user.UserName,
                 Image = "",
-                UserRole = "user"
+                UserRole = "user",
+                BloodDonorId = user.BloodDonorId
             };
             db.Users.Add(create_user);
             int result = db.SaveChanges();
