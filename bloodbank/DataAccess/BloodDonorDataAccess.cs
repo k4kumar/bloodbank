@@ -22,7 +22,7 @@ namespace bloodbank.DataAccess
         {
             var db = new bloodbankDbContext();
             List<BloodDonor> result = new List<BloodDonor>();
-            List<BloodDonor> bloodDonors = db.BloodDonors.OrderBy(e=>e.LastDonatedDate).ToList();
+            List<BloodDonor> bloodDonors = db.BloodDonors.OrderBy(e=>e.IsVerified).ThenBy(e=>e.LastDonatedDate).ToList();
             if (bloodDonors == null)
                 return null;
             foreach(BloodDonor donor in bloodDonors)
@@ -103,6 +103,15 @@ namespace bloodbank.DataAccess
 
             db.BloodDonors.Add(blooddonor);
             blooddonor.Id = db.SaveChanges();
+
+            UserViewModel user = new UserViewModel
+            {
+                Password = model.Password,
+                UserName = model.Username,
+                Email = model.Email?? ""
+            };
+
+            int result = UserDataAccess.CreateUser(user);
 
             return blooddonor.Id;
         }

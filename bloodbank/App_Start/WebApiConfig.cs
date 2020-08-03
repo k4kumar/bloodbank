@@ -21,6 +21,12 @@ namespace bloodbank
             config.Formatters.XmlFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("multipart/form-data"));
 
             config.Routes.MapHttpRoute(
+              "BloodDonor_autogenerate_users",
+              "api/v1/blooddonor/generate_users",
+              new { controller = "User", action = "AutoGenerateUserFromBloodDonors", id = RouteParameter.Optional }
+           );
+
+            config.Routes.MapHttpRoute(
               "BloodDonor_update_donation_date",
               "api/v1/blooddonor/update_donation_date",
               new { controller = "BloodDonor", action = "UpdateDonationDate", id = RouteParameter.Optional, date = RouteParameter.Optional }
@@ -28,7 +34,7 @@ namespace bloodbank
 
             config.Routes.MapHttpRoute(
                "BloodDonor_approve",
-               "api/v1/blooddonor/approve",
+               "api/v1/admin/blooddonor/approve",
                new { controller = "BloodDonor", action = "Approve", id = RouteParameter.Optional }
             );
 

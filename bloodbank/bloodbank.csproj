@@ -159,6 +159,10 @@
     <Compile Include="Migrations\202007281702513_BloodDonorModelUpdate.designer.cs">
       <DependentUpon>202007281702513_BloodDonorModelUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008031904389_UserModelUpdated.cs" />
+    <Compile Include="Migrations\202008031904389_UserModelUpdated.designer.cs">
+      <DependentUpon>202008031904389_UserModelUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BloodDonor.cs" />
     <Compile Include="Models\BloodDonorViewModel.cs" />
@@ -178,6 +182,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\download\rbl_bloodbank.apk" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -230,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007281702513_BloodDonorModelUpdate.resx">
       <DependentUpon>202007281702513_BloodDonorModelUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008031904389_UserModelUpdated.resx">
+      <DependentUpon>202008031904389_UserModelUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

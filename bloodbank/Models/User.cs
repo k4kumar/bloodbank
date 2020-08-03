@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -40,5 +41,11 @@ namespace bloodbank.Models
         public int FailedLoginAttempt { get; set; }
         public bool BlockedUser { get; set; }
         public DateTime? LastLoginAt { get; set; }
+
+        [ForeignKey("BloodDonor")]
+        public int BloodDonorId { get; set; }
+
+        public virtual BloodDonor BloodDonor { get; set; }
+
     }
 }

@@ -69,9 +69,10 @@ namespace bloodbank.Controllers
             });
         }
 
-        public IHttpActionResult Approve(int id)
+        [HttpPost]
+        public IHttpActionResult Approve(BloodDonor model)
         {
-            BloodDonor bloodDonor = BloodDonorDataAccess.ApproveDonor(id);
+            BloodDonor bloodDonor = BloodDonorDataAccess.ApproveDonor(model.Id);
             if (bloodDonor == null)
                 return Content(HttpStatusCode.OK, new { data = new { }, code = HttpStatusCode.NotFound, message = "Donor not found!", isSuccess = false });
 

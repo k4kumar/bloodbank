@@ -35,5 +35,21 @@ namespace bloodbank.Controllers
                 isSuccess = true
             });
         }
+
+        [HttpPost]
+        public IHttpActionResult AutoGenerateUserFromBloodDonors()
+        {
+
+            return Content(HttpStatusCode.OK, new
+            {
+                data = new
+                {
+                    CreatedUsers = UserDataAccess.AutoGenerateUser()
+                },
+                code = HttpStatusCode.OK,
+                message = "success",
+                isSuccess = true
+            });
+        }
     }
 }
