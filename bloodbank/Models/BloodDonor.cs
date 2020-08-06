@@ -12,7 +12,7 @@ namespace bloodbank.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(10,ErrorMessage ="Reg No can't be longer than 10 characters")]
+        [StringLength(100,ErrorMessage ="Reg No can't be longer than 10 characters")]
         public string RegNo { get; set; }
 
         [Required(ErrorMessage ="Name is required")]

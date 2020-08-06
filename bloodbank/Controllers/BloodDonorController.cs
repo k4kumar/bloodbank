@@ -43,7 +43,7 @@ namespace bloodbank.Controllers
             {
                 data = new
                 {
-                    blooddonors = BloodDonorDataAccess.GetActiveBloodDonorsList()
+                    blooddonors = bloodDonors
                 },
                 code = HttpStatusCode.OK,
                 message = "success",
@@ -61,7 +61,44 @@ namespace bloodbank.Controllers
             {
                 data = new
                 {
-                    blooddonors = BloodDonorDataAccess.GetBloodDonorsList()
+                    blooddonors = bloodDonors
+                },
+                code = HttpStatusCode.OK,
+                message = "success",
+                isSuccess = true
+            });
+        }
+
+        public IHttpActionResult GetBloodDonor(string username)
+        {
+            BloodDonorViewModel bloodDonor = BloodDonorDataAccess.GetBloodDonor(username);
+            if (bloodDonor == null)
+                return Content(HttpStatusCode.OK, new { data = new { }, code = HttpStatusCode.NotFound, message = "Donor list not found!", isSuccess = false });
+
+            return Content(HttpStatusCode.OK, new
+            {
+                data = new
+                {
+                    bloodDonor = bloodDonor
+                },
+                code = HttpStatusCode.OK,
+                message = "success",
+                isSuccess = true
+            });
+        }
+
+        [HttpPost]
+        public IHttpActionResult UpdateBloodDonor(BloodDonorViewModel model)
+        {
+            BloodDonorViewModel bloodDonor = BloodDonorDataAccess.UpdateBloodDonor(model);
+            if (bloodDonor == null)
+                return Content(HttpStatusCode.OK, new { data = new { }, code = HttpStatusCode.NotFound, message = "Donor not found!", isSuccess = false });
+
+            return Content(HttpStatusCode.OK, new
+            {
+                data = new
+                {
+                    blooddonor = bloodDonor
                 },
                 code = HttpStatusCode.OK,
                 message = "success",

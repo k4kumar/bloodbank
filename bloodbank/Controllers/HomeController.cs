@@ -13,9 +13,9 @@ namespace bloodbank.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Privacy()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "RBL Blood Bond Privacy Page";
 
             return View();
         }

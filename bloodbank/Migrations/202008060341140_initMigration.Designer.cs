@@ -7,13 +7,13 @@ namespace bloodbank.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class BloodDonorLongLatAdded : IMigrationMetadata
+    public sealed partial class initMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(BloodDonorLongLatAdded));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202007241510102_BloodDonorLongLatAdded"; }
+            get { return "202008060341140_initMigration"; }
         }
         
         string IMigrationMetadata.Source

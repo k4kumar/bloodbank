@@ -1,4 +1,5 @@
 ﻿using bloodbank.Context;
+using bloodbank.Helpers;
 using bloodbank.Models;
 using System;
 using System.Collections.Generic;
@@ -79,6 +80,55 @@ namespace bloodbank.DataAccess
             return result;
         }
 
+        public static BloodDonorViewModel GetBloodDonor(string username)
+        {
+            var db = new bloodbankDbContext();
+            User user = db.Users.Where(e => e.UserName == username).FirstOrDefault();
+            BloodDonor bloodDonor = db.BloodDonors.Where(e => e.Id == user.BloodDonorId).FirstOrDefault();
+
+            BloodDonorViewModel bloodDonorViewModel = new BloodDonorViewModel
+            {
+                BloodGroup = bloodDonor.BloodGroup,
+                Password = "",
+                Username = user.UserName,
+                Email = bloodDonor.Email,
+                Division = bloodDonor.Division,
+                LastDonatedDate = bloodDonor.LastDonatedDate,
+                Name = bloodDonor.Name,
+                NickName = bloodDonor.NickName,
+                Mobile = bloodDonor.Mobile,
+                EmergencyContact = bloodDonor.EmergencyContact,
+                Comment = bloodDonor.Comment,
+                RegNo = bloodDonor.RegNo
+            };
+
+            return bloodDonorViewModel;
+        }
+
+        public static BloodDonorViewModel UpdateBloodDonor(BloodDonorViewModel donor)
+        {
+            var db = new bloodbankDbContext();
+            BloodDonor oldDonor = db.BloodDonors.Where(e => e.RegNo == donor.RegNo).FirstOrDefault();
+            User oldUser = db.Users.Where(e => e.BloodDonorId == oldDonor.Id).FirstOrDefault();
+
+            oldDonor.Name = donor.Name;
+            oldDonor.NickName = donor.NickName;
+            oldDonor.Mobile = donor.Mobile;
+            oldDonor.EmergencyContact = donor.EmergencyContact;
+            oldDonor.Comment = donor.Comment;
+            oldDonor.Division = donor.Division;
+            oldDonor.LastDonatedDate = donor.LastDonatedDate;
+            oldDonor.BloodGroup = donor.BloodGroup;
+            oldDonor.Email = donor.Email;
+
+            oldUser.Password = PasswordHash.Hash(donor.Password);
+
+            db.Entry(oldDonor).State = System.Data.Entity.EntityState.Modified;
+            db.Entry(oldUser).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+            return donor;
+        }
 
         public static int RegisterBloodDonor(BloodDonorViewModel model)
         {

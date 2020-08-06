@@ -139,33 +139,24 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Context\bloodbankDbContext.cs" />
     <Compile Include="Controllers\BloodDonorController.cs" />
+    <Compile Include="Controllers\DonationPostController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DataAccess\BloodDonorDataAccess.cs" />
+    <Compile Include="DataAccess\DonationPostDataAccess.cs" />
     <Compile Include="DataAccess\UserDataAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\PasswordHash.cs" />
-    <Compile Include="Migrations\202007221831156_InitMigration.cs" />
-    <Compile Include="Migrations\202007221831156_InitMigration.designer.cs">
-      <DependentUpon>202007221831156_InitMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007241510102_BloodDonorLongLatAdded.cs" />
-    <Compile Include="Migrations\202007241510102_BloodDonorLongLatAdded.designer.cs">
-      <DependentUpon>202007241510102_BloodDonorLongLatAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007281702513_BloodDonorModelUpdate.cs" />
-    <Compile Include="Migrations\202007281702513_BloodDonorModelUpdate.designer.cs">
-      <DependentUpon>202007281702513_BloodDonorModelUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008031904389_UserModelUpdated.cs" />
-    <Compile Include="Migrations\202008031904389_UserModelUpdated.designer.cs">
-      <DependentUpon>202008031904389_UserModelUpdated.cs</DependentUpon>
+    <Compile Include="Migrations\202008060341140_initMigration.cs" />
+    <Compile Include="Migrations\202008060341140_initMigration.designer.cs">
+      <DependentUpon>202008060341140_initMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BloodDonor.cs" />
     <Compile Include="Models\BloodDonorViewModel.cs" />
+    <Compile Include="Models\DonationPost.cs" />
     <Compile Include="Models\Hospital.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserViewModel.cs" />
@@ -206,7 +197,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Privacy.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
@@ -227,17 +218,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202007221831156_InitMigration.resx">
-      <DependentUpon>202007221831156_InitMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007241510102_BloodDonorLongLatAdded.resx">
-      <DependentUpon>202007241510102_BloodDonorLongLatAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007281702513_BloodDonorModelUpdate.resx">
-      <DependentUpon>202007281702513_BloodDonorModelUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008031904389_UserModelUpdated.resx">
-      <DependentUpon>202008031904389_UserModelUpdated.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008060341140_initMigration.resx">
+      <DependentUpon>202008060341140_initMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
