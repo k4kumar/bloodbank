@@ -153,11 +153,17 @@
     <Compile Include="Migrations\202008060341140_initMigration.designer.cs">
       <DependentUpon>202008060341140_initMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008081542247_PlasmaDonorAdded.cs" />
+    <Compile Include="Migrations\202008081542247_PlasmaDonorAdded.designer.cs">
+      <DependentUpon>202008081542247_PlasmaDonorAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BloodDonor.cs" />
     <Compile Include="Models\BloodDonorViewModel.cs" />
     <Compile Include="Models\DonationPost.cs" />
     <Compile Include="Models\Hospital.cs" />
+    <Compile Include="Models\PlasmaDonor.cs" />
+    <Compile Include="Models\PlasmaDonorViewModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -220,6 +226,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202008060341140_initMigration.resx">
       <DependentUpon>202008060341140_initMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008081542247_PlasmaDonorAdded.resx">
+      <DependentUpon>202008081542247_PlasmaDonorAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -13,5 +13,7 @@ namespace bloodbank.Context
         public DbSet<Hospital> Hospitals { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<DonationPost> DonationPosts { get; set; }
+
+        public DbSet<PlasmaDonor> PlasmaDonors { get; set; }
     }
 }

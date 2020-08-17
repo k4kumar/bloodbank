@@ -143,22 +143,42 @@ namespace bloodbank.Controllers
             });
         }
 
-        //public IHttpActionResult App()
-        //{
-        //    var bloodDonors = BloodDonorDataAccess.GetBloodDonorsList();
-        //    if (bloodDonors == null)
-        //        return Content(HttpStatusCode.OK, new { data = new { }, code = HttpStatusCode.NotFound, message = "Donor not found!", isSuccess = false });
+        [HttpPost]
+        public IHttpActionResult AddPlasmaDonor(PlasmaDonorViewModel model)
+        {
+            if (model == null)
+                return Content(HttpStatusCode.OK, new { data = new { }, code = HttpStatusCode.NotAcceptable, message = "Please provide required data!", isSuccess = false });
 
-        //    return Content(HttpStatusCode.OK, new
-        //    {
-        //        data = new
-        //        {
-        //            blooddonors = BloodDonorDataAccess.GetBloodDonorsList()
-        //        },
-        //        code = HttpStatusCode.OK,
-        //        message = "success",
-        //        isSuccess = true
-        //    });
-        //}
+
+            return Content(HttpStatusCode.OK, new
+            {
+                data = new
+                {
+                    id = BloodDonorDataAccess.AddPlasmaDonor(model)
+                },
+                code = HttpStatusCode.OK,
+                message = "success",
+                isSuccess = true
+            });
+        }
+
+        public IHttpActionResult GetPlasmaDonors()
+        {
+            var plasmaDonors = BloodDonorDataAccess.GetPlasmaDonors();
+            if (plasmaDonors == null)
+                return Content(HttpStatusCode.OK, new { data = new { }, code = HttpStatusCode.NotFound, message = "Donor list not found!", isSuccess = false });
+
+            return Content(HttpStatusCode.OK, new
+            {
+                data = new
+                {
+                    plasmadonors = plasmaDonors
+                },
+                code = HttpStatusCode.OK,
+                message = "success",
+                isSuccess = true
+            });
+        }
+
     }
 }

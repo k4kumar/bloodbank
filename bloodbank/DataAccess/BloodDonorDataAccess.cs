@@ -121,7 +121,11 @@ namespace bloodbank.DataAccess
             oldDonor.BloodGroup = donor.BloodGroup;
             oldDonor.Email = donor.Email;
 
-            oldUser.Password = PasswordHash.Hash(donor.Password);
+            if(donor.Password!=null)
+            {
+                oldUser.Password = PasswordHash.Hash(donor.Password);
+            }
+            
 
             db.Entry(oldDonor).State = System.Data.Entity.EntityState.Modified;
             db.Entry(oldUser).State = System.Data.Entity.EntityState.Modified;
@@ -165,6 +169,36 @@ namespace bloodbank.DataAccess
             int result = UserDataAccess.CreateUser(user);
 
             return blooddonor.Id;
+        }
+
+
+        public static int AddPlasmaDonor(PlasmaDonorViewModel model)
+        {
+            var db = new bloodbankDbContext();
+            PlasmaDonor plasmaDonor = new PlasmaDonor();
+            User user = db.Users.Where(e => e.UserName == model.RegNo).FirstOrDefault();
+            BloodDonor donor = db.BloodDonors.Where(e => e.Id == user.BloodDonorId).FirstOrDefault();
+
+            plasmaDonor.AffectedDate = model.AffectedDate;
+            plasmaDonor.BloodDonorId = donor.Id;
+            plasmaDonor.RecoveryDate = model.RecoveryDate;
+            plasmaDonor.HasDonated = false;
+            plasmaDonor.IsVerified = false;
+
+            db.PlasmaDonors.Add(plasmaDonor);
+            db.SaveChanges();
+
+            return plasmaDonor.Id;
+        }
+
+        public static List<PlasmaDonor> GetPlasmaDonors()
+        {
+            var db = new bloodbankDbContext();
+            List<PlasmaDonor> plasmaDonors = db.PlasmaDonors.ToList();
+            if (plasmaDonors == null)
+                return null;
+           
+            return plasmaDonors;
         }
 
         public static BloodDonor ApproveDonor(int id)

@@ -19,7 +19,19 @@ namespace bloodbank
             // Web API routes
             config.MapHttpAttributeRoutes();
             config.Formatters.XmlFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("multipart/form-data"));
-            
+
+            config.Routes.MapHttpRoute(
+                "PlasmaDonors",
+                "api/v1/plasma_donors",
+                new { controller = "BloodDonor", action = "GetPlasmaDonors", id = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
+               "Add_plasma_donor",
+               "api/v1/plasma_donor/add",
+               new { controller = "BloodDonor", action = "AddPlasmaDonor", id = RouteParameter.Optional }
+            );
+
             config.Routes.MapHttpRoute(
                "Get_blood_donor",
                "api/v1/blood_donor/get/{username}",
